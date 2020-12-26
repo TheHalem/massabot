@@ -20,19 +20,17 @@ async def on_ready():
 
 
 @client.event
-async def on_reaction_add(reaction, user):
-    print(f'{reaction.emoji}')
-
-
-@client.event
 async def on_message(message):
 
     failHardo = ("<:WideHardo1:744316977924800633> <:WideHardo2:744317025345863831> <:WideHardo3:744317070925365379> <:WideHardo4:744317111865966592>", "<:WideHardo1:744316977924800633> <:WideHardo2:744317025345863831> <:WideHardo3:744317070925365379>",
-                 "<:WideHardo1:744316977924800633> <:WideHardo2:744317025345863831>", "<:WideHardo2:744317025345863831> <:WideHardo3:744317070925365379> <:WideHardo4:744317111865966592>", "<:WideHardo3:744317070925365379> <:WideHardo4:744317111865966592>", "<:WideHardo2:744317025345863831> <:WideHardo3:744317070925365379>",
-                 "<:WideHardo1:744316977924800633> <:WideHardo4:744317111865966592>")
+                 "<:WideHardo1:744316977924800633> <:WideHardo2:744317025345863831>", "<:WideHardo2:744317025345863831> <:WideHardo3:744317070925365379> <:WideHardo4:744317111865966592>", "<:WideHardo3:744317070925365379> <:WideHardo4:744317111865966592>", "<:WideHardo2:744317025345863831> <:WideHardo3:744317070925365379>", "<:WideHardo1:744316977924800633> <:WideHardo4:744317111865966592>")
 
     if message.content == '<:WideHardo1:744316977924800633><:WideHardo2:744317025345863831><:WideHardo3:744317070925365379><:WideHardo4:744317111865966592>':
         await message.add_reaction('<:FakeFocus:792162631568850945>')
+
+    if message.content == '<:WideHardo1:744316977924800633><:WideHardo2:744317025345863831><:WideHardo3:744317070925365379><:WideHardo4:744317111865966592>❓' or message.content == '<:WideHardo1:744316977924800633><:WideHardo2:744317025345863831><:WideHardo3:744317070925365379><:WideHardo4:744317111865966592> ❓':
+        response = "<:WideHardo1:744316977924800633><:WideHardo2:744317025345863831><:WideHardo3:744317070925365379><:WideHardo4:744317111865966592>❗"
+        await message.channel.send(response)
 
     if any(bad_word in message.content for bad_word in failHardo):
         response = "<:WideHardo1:744316977924800633><:WideHardo2:744317025345863831><:WideHardo3:744317070925365379><:WideHardo4:744317111865966592>"
